@@ -5,7 +5,7 @@ import java.io.* ;
 /**
  * LibraryManagementSystem 클래스의 설명을 작성하세요.
  *
- * @author (2025957072 강서윤, 2025320070 복창희)
+ * @author (2025957072 강서윤, 2025320070 복창희, 2023320022 편규빈)
  * @version (2026-10-14)
  */
 public class LibraryManagementSystem
@@ -24,6 +24,19 @@ public class LibraryManagementSystem
         bookDB = new LibDB<Book> (); 
         loanDB = new HashMap<User,Book> () ; 
         userDB = new LibDB<User> () ; 
+    }
+
+    /**
+     * borrowBook() : 이용자 ID와 책 ID를 이용해 대출정보를 생성해 loan DB에 저장하는 메소드
+     *
+     * @param       user ID, book ID
+     */
+    public void borrowBook(String userID, String bookID)
+    {
+        User user = userDB.findElement(userID);
+        Book book = bookDB.findElement(bookID);
+        
+        loanDB.put(user, book);
     }
 
     /**
@@ -46,11 +59,11 @@ public class LibraryManagementSystem
     {
         Set<User> keySet = loanDB.keySet(); // 모든 key 목록 가져오기
         Iterator<User> it = keySet.iterator(); // key 목록 순회를 위한 Iterator() 실행
-        
+
         while (it.hasNext()) {
             User user = it.next(); //User 객체 가져오기
             Book book = loanDB.get(user); // Book 객체 가져오기
-            
+
             // 대출 현황 출력 (이용자 정보 => 책 정보)
             System.out.println(user.toString()+ " ===> " + book.toString());
         }
