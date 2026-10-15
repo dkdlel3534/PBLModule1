@@ -42,7 +42,7 @@ public class LibraryManagementSystem
      * @param     대출 DB
      * @return    void
      */
-    public static void printLoanLIst(HashMap<User,Book> loanDB)
+    public static void printLoanList(HashMap<User,Book> loanDB)
     {
         Set<User> keySet = loanDB.keySet(); // 모든 key 목록 가져오기
         Iterator<User> it = keySet.iterator(); // key 목록 순회를 위한 Iterator() 실행
