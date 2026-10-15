@@ -65,5 +65,6 @@ public class LibDB<T extends DB_Element>
         for (T object : db){
             System.out.println(object.toString());
         }
+        System.out.println("") ; 
     }
 }

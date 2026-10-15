@@ -60,6 +60,7 @@ public class LibraryManagementSystem
         Set<User> keySet = loanDB.keySet(); // 모든 key 목록 가져오기
         Iterator<User> it = keySet.iterator(); // key 목록 순회를 위한 Iterator() 실행
 
+        System.out.println("----- 대출 현황 -----") ; 
         while (it.hasNext()) {
             User user = it.next(); //User 객체 가져오기
             Book book = loanDB.get(user); // Book 객체 가져오기
@@ -67,6 +68,7 @@ public class LibraryManagementSystem
             // 대출 현황 출력 (이용자 정보 => 책 정보)
             System.out.println(user.toString()+ " ===> " + book.toString());
         }
+        System.out.println("-------------------") ; 
     }
 
     /**

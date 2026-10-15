@@ -43,7 +43,7 @@ public class User extends DB_Element
     public String toString()
     {
         // 여기에 코드를 작성하세요
-        return "[" +stID+ "]" + name ;
+        return "[" +stID+ "] " + name ;
     }
 
 }
