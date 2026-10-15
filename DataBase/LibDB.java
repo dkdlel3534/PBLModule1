@@ -62,6 +62,12 @@ public class LibDB<T extends DB_Element>
      */
     public void printAllElements()
     {
+        if (db.size() > 0 && db.get(0) instanceof User){
+            System.out.println("----- 이용자 목록 출력 -----");
+        }
+        else if (db.size() > 0 && db.get(0) instanceof Book){
+            System.out.println("----- 책 목록 출력 -----");
+        }
         for (T object : db){
             System.out.println(object.toString());
         }
