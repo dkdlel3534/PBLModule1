@@ -35,7 +35,7 @@ public class LibraryManagementSystem
     {
         User user = userDB.findElement(userID);
         Book book = bookDB.findElement(bookID);
-        
+
         loanDB.put(user, book);
     }
 
@@ -60,13 +60,18 @@ public class LibraryManagementSystem
         Set<User> keySet = loanDB.keySet(); // 모든 key 목록 가져오기
         Iterator<User> it = keySet.iterator(); // key 목록 순회를 위한 Iterator() 실행
 
-        System.out.println("----- 대출 현황 -----") ; 
-        while (it.hasNext()) {
-            User user = it.next(); //User 객체 가져오기
-            Book book = loanDB.get(user); // Book 객체 가져오기
+        System.out.println("----- 대출 현황 -----") ;
+        try{
+            while (it.hasNext()) {
+                User user = it.next(); //User 객체 가져오기
+                Book book = loanDB.get(user); // Book 객체 가져오기
 
-            // 대출 현황 출력 (이용자 정보 => 책 정보)
-            System.out.println(user.toString()+ " ===> " + book.toString());
+                // 대출 현황 출력 (이용자 정보 => 책 정보)
+                System.out.println(user.toString()+ " ===> " + book.toString());
+            }
+        }
+        catch(NullPointerException e){
+            System.out.println("대출 정보가 존재하지 않습니다.");
         }
         System.out.println("-------------------") ; 
     }
