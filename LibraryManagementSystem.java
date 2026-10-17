@@ -30,7 +30,7 @@ public class LibraryManagementSystem
     /**
      * borrowBook() : 이용자 ID와 책 ID를 이용해 대출정보를 생성해 loan DB에 저장하는 메소드
      *
-     * @param       user ID, book ID
+     * @param       학번(user ID), 책 등록번호(book ID)
      */
     public void borrowBook(String userID, String bookID)
     {

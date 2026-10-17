@@ -1,5 +1,4 @@
 package myClass;
-
 /**
  * User 클래스 : 이용자 객체의 생성과 사용을 위한 클래스
  *
@@ -19,7 +18,7 @@ public class User extends DB_Element
      * 
      */
 
-    public User(int stID,String name)
+    public User(int stID, String name)
     {
         this.stID = stID ;
         this.name = name ;
