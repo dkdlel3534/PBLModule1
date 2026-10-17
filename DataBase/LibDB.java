@@ -56,7 +56,7 @@ public class LibDB<T extends DB_Element>
         }
         return object;
     }
-
+    
     /**
      * printAllElement() : DB의 객체 정보를 전부 출력하는 메소드
      */
@@ -71,6 +71,6 @@ public class LibDB<T extends DB_Element>
         for (T object : db){
             System.out.println(object.toString());
         }
-        System.out.println("") ; 
+        System.out.println("") ;  
     }
 }
