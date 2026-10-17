@@ -84,40 +84,42 @@ public class LibraryManagementSystem
      */
     public LibDB<Book> setBookDB(String bookFile)
     {
-        try {
-            // 파일 객체 , 파일 입력 스트림 생성 
+        try{
+            // 파일 객체 생성 , 문자 입력 스트림 생성 
             File file = new File(bookFile) ; 
             FileReader fr = new FileReader(file) ; 
-
+            
+            // Input Stream 객체 생성 
             Scanner scan = new Scanner(fr) ; 
-            Vector<String> v = new Vector<String> () ;
 
-            while(scan.hasNext()) {  
-                String bookInfo = scan.nextLine() ; // 하나의 book 객체 정보 읽기 
-                StringTokenizer st = new StringTokenizer(bookInfo,"/") ;  
-
+            while (scan.hasNext()) { 
+                String bookInfo = scan.nextLine() ; // bookFile의 한줄 읽어오기 
+                StringTokenizer st = new StringTokenizer(bookInfo, "/") ;  // 한 줄에 대한 토큰화 
+                
+                String[] tokens = new String[st.countTokens()] ; 
+                
+                int i = 0 ; 
                 while(st.hasMoreTokens()) {
-                    v.add(st.nextToken()) ;   // vector에 book의 속성을 저장 
+                    tokens[i++] = st.nextToken() ;  // String[]에 토큰 저장 
                 }
-
-                Object[] array = v.toArray() ;  // vector를 배열화.
-                v.clear() ;   
-
-                // Book객체의 속성 찾기 
-                String author = (String)array[2] ; 
-                String bookID = (String)array[0] ; 
-                String publisher = (String)array[3] ; 
-                String title = (String)array[1] ; 
-                int year = Integer.parseInt((String)array[4]) ; 
-
-                Book book = new Book(author,bookID,publisher,title,year) ;  // Book 객체 생성 
+                
+                // 책의 속성을 인덱싱하여 찾기 
+                String author = tokens[2] ; 
+                String bookID = tokens[0] ; 
+                String publisher = tokens[3] ; 
+                String title = tokens[1] ; 
+                int year = Integer.parseInt(tokens[4]) ; 
+                
+                // 책 객체 생성 
+                Book book = new Book(author, bookID, publisher, title, year) ; 
+                
+                // 책DB에 책 객체 등록 
                 bookDB.addElement(book) ; 
             }
-            fr.close() ; 
-
-        } catch(IOException e) {
-            System.out.println("파일 입출력 오류 !") ; 
-        }
+            scan.close() ; 
+            } catch(IOException e) {
+            System.out.println("파일 입출력 오류 !")  ; 
+        } 
 
         return bookDB ; 
     }
