@@ -1,6 +1,4 @@
 package myClass;
-
-
 /**
  * DB_Element 클래스 : Book 클래스와 User 클래스가 사용할 getId()를 제시해놓은 추상클래스
  *

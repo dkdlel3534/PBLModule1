@@ -18,8 +18,8 @@ public class LibDB<T extends DB_Element>
      */
     public LibDB()
     {
-        ArrayList<T> db = new ArrayList<T> (); 
         // db에 제네릭 타입의 ArrayList를 생성 후 참조시킴
+        ArrayList<T> db = new ArrayList<T> (); 
     }
 
     /**

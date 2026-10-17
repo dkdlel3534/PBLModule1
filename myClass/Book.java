@@ -1,5 +1,4 @@
 package myClass;
-
 /**
  * Book 클래스 : 책 객체의 생성과 사용을 위한 클래스
  *
