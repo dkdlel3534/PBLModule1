@@ -1,7 +1,7 @@
 import DataBase.* ; 
 import myClass.* ; 
 /**
- * App 클래스의 설명을 작성하세요.
+ * App : 도서관 관리 시스템(LMS)을 이용해 대출 작업 전반을 수행한다. 
  *
  * @author (2025957072 강서윤)
  * @version (2026-10-15)
@@ -24,13 +24,13 @@ public class App
         // 5. 책 DB 출력
         LMS.printDB(bookDB) ; 
         
-        // 6 . 책을 1권 대출한다 .
+        // 6 . 대출 작업 3건 수행 
         LMS.borrowBook("2025320001", "B02") ; 
         LMS.borrowBook("2024320002", "B03") ; 
         LMS.borrowBook("2025320003", "B04") ; 
         
         
-        // 7. 대출 현황 출력
+        // 7. 대출DB(대출 현황) 출력 
         LMS.printLoanList(LMS.loanDB) ;  
     }
 }

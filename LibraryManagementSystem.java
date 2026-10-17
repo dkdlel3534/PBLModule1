@@ -3,10 +3,11 @@ import DataBase.* ;
 import java.util.*;
 import java.io.* ; 
 /**
- * LibraryManagementSystem 클래스의 설명을 작성하세요.
+ * LibraryManagementSystem : 도서관 관리 시스템에서 수행하는 여러 가지 작업을 정의해 놓은 클래스. 
+ *                           (책 대출, DB 출력, 책 등록 및 이용자 등록)
  *
  * @author (2025957072 강서윤, 2025320070 복창희, 2023320022 편규빈)
- * @version (2026-10-14)
+ * @version (2026-10-17)
  */
 public class LibraryManagementSystem
 {
@@ -88,37 +89,37 @@ public class LibraryManagementSystem
             // 파일 객체 생성 , 문자 입력 스트림 생성 
             File file = new File(bookFile) ; 
             FileReader fr = new FileReader(file) ; 
-            
+
             // Input Stream 객체 생성 
             Scanner scan = new Scanner(fr) ; 
 
             while (scan.hasNext()) { 
                 String bookInfo = scan.nextLine() ; // bookFile의 한줄 읽어오기 
                 StringTokenizer st = new StringTokenizer(bookInfo, "/") ;  // 한 줄에 대한 토큰화 
-                
+
                 String[] tokens = new String[st.countTokens()] ; 
-                
+
                 int i = 0 ; 
                 while(st.hasMoreTokens()) {
                     tokens[i++] = st.nextToken() ;  // String[]에 토큰 저장 
                 }
-                
+
                 // 책의 속성을 인덱싱하여 찾기 
                 String author = tokens[2] ; 
                 String bookID = tokens[0] ; 
                 String publisher = tokens[3] ; 
                 String title = tokens[1] ; 
                 int year = Integer.parseInt(tokens[4]) ; 
-                
+
                 // 책 객체 생성 
                 Book book = new Book(author, bookID, publisher, title, year) ; 
-                
+
                 // 책DB에 책 객체 등록 
                 bookDB.addElement(book) ; 
             }
             scan.close() ; 
-            } catch(IOException e) {
-            System.out.println("파일 입출력 오류 !")  ; 
+        } catch(IOException e) {
+            System.out.println("bookFile - 파일 입출력 오류 발생 !")  ; 
         } 
 
         return bookDB ; 
@@ -133,38 +134,38 @@ public class LibraryManagementSystem
     public LibDB<User> setUserDB(String userFile)
     {
         try {
-            // 파일 객체 , 파일 입력 스트림 생성  
+            // 파일 객체 생성 , 문자 입력 스트림 생성 
             File file = new File(userFile) ; 
             FileReader fr = new FileReader(file) ; 
 
+            // Input Stream 객체 생성 
             Scanner scan = new Scanner(fr) ; 
-            Vector<String> v = new Vector<String> () ; 
 
-            while (scan.hasNext()) { 
-                String userInfo = scan.nextLine() ;  // 하나의 user 정보 읽기 
-                StringTokenizer st = new StringTokenizer(userInfo,"/") ; 
+            while(scan.hasNext()) {
+                String bookInfo = scan.nextLine() ; // userFile 한줄 읽어오기 
+                StringTokenizer st = new StringTokenizer(bookInfo,"/") ; // 한줄에 대한 토큰화 
+                String[] tokens = new String[st.countTokens()] ;  
 
-                while (st.hasMoreTokens()) {
-                    v.add(st.nextToken()) ;   // vector에 user의 속성을 저장 . 
+                int i = 0 ; 
+                while(st.hasMoreTokens()) {
+                    tokens[i++] = st.nextToken() ;  // String[]에 토큰을 저장 
                 }
-
-                Object[] array = v.toArray() ;  // vecetor를 배열화 . 
-                v.clear() ; 
-
-                // user의 속성 찾기 
-                String name = (String)array[1] ; 
-                String a = (String)array[0] ; 
-                Integer stID = Integer.valueOf(a) ; 
-
-                User user = new User(stID,name) ; // user 객체 생성 
+                
+                // 이용자의 속성 인텍싱으로 찾기 
+                Integer stID = Integer.parseInt(tokens[0]); 
+                String name = tokens[1] ; 
+                
+                // 이용자 객체 생성 
+                User user = new User(stID, name) ; 
+                
+                // 이용자DB에 이용자 등록 
                 userDB.addElement(user) ; 
             }
-            fr.close() ; 
-
-        } catch(IOException e) {
-            System.out.println("파일 입출력 오류 !") ; 
+            scan.close() ; 
+        } catch (IOException e) {
+            System.out.println("userFile - 파일 입출력 오류 발생 !") ; 
         }
+        
         return userDB ; 
     }
-
 }
