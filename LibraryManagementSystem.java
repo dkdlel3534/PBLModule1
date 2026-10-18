@@ -39,13 +39,14 @@ public class LibraryManagementSystem
 
         loanDB.put(user, book);
     }
-
+    
     /**
      * printDB() : 책 DB 또는 이용자 DB의 모든 요소를 출력하는 메소드
      *
      * @param    db(책 DB or 이용자 DB)
+     * @return   void
      */
-    public static <T extends DB_Element> void printDB(LibDB <T> db)
+    public <T extends DB_Element> void printDB(LibDB <T> db)
     {
         db.printAllElements();
     }
@@ -56,7 +57,7 @@ public class LibraryManagementSystem
      * @param     대출 DB
      * @return    void
      */
-    public static void printLoanList(HashMap<User,Book> loanDB)
+    public void printLoanList()
     {
         Set<User> keySet = loanDB.keySet(); // 모든 key 목록 가져오기
         Iterator<User> it = keySet.iterator(); // key 목록 순회를 위한 Iterator() 실행

@@ -31,6 +31,6 @@ public class App
         
         
         // 7. 대출 목록 출력 
-        libMS.printLoanList(libMS.loanDB) ;  
+        libMS.printLoanList() ;  
     }
 }
