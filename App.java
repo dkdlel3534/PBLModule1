@@ -9,28 +9,28 @@ import myClass.* ;
 public class App
 {
     public static void main(String[] args) {
-        // 1. LibMS 생성  
-        LibraryManagementSystem LMS = new LibraryManagementSystem() ;  
+        // 1. LibraryManagementSystem의 객체 생성 
+        LibraryManagementSystem libMS = new LibraryManagementSystem() ;  
         
         // 2. 이용자 신규 등록 
-        LMS.userDB= LMS.setUserDB("c:\\Temp\\UserData2025.txt") ; 
+        libMS.userDB= libMS.setUserDB("c:\\Temp\\UserData2025.txt") ; 
         
-        // 3. 이용자DB  출력 
-        LMS.printDB(LMS.userDB) ; 
+        // 3. 이용자 목록 출력 
+        libMS.printDB(libMS.userDB) ; 
         
-        // 4. 신규 책 등록
-        LibDB<Book> bookDB = LMS.setBookDB("c:\\Temp\\BookData2025.txt") ; 
+        // 4. 책 신규 등록
+        LibDB<Book> bookDB = libMS.setBookDB("c:\\Temp\\BookData2025.txt") ; 
         
-        // 5. 책 DB 출력
-        LMS.printDB(bookDB) ; 
+        // 5. 책 목록 출력
+        libMS.printDB(bookDB) ; 
         
         // 6 . 대출 작업 3건 수행 
-        LMS.borrowBook("2025320001", "B02") ; 
-        LMS.borrowBook("2024320002", "B03") ; 
-        LMS.borrowBook("2025320003", "B04") ; 
+        libMS.borrowBook("2025320001", "B02") ; 
+        libMS.borrowBook("2024320002", "B03") ; 
+        libMS.borrowBook("2025320003", "B04") ; 
         
         
-        // 7. 대출DB(대출 현황) 출력 
-        LMS.printLoanList(LMS.loanDB) ;  
+        // 7. 대출 목록 출력 
+        libMS.printLoanList(libMS.loanDB) ;  
     }
 }

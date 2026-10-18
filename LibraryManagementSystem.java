@@ -86,11 +86,13 @@ public class LibraryManagementSystem
     public LibDB<Book> setBookDB(String bookFile)
     {
         try{
-            // 파일 객체 생성 , 문자 입력 스트림 생성 
+            // 파일 객체 생성 
             File file = new File(bookFile) ; 
+            
+            // 문자 입력 스트림 생성 
             FileReader fr = new FileReader(file) ; 
 
-            // Input Stream 객체 생성 
+            // FileReader를 이용하여 Scanner 객체 생성 
             Scanner scan = new Scanner(fr) ; 
 
             while (scan.hasNext()) { 
@@ -117,7 +119,7 @@ public class LibraryManagementSystem
                 // 책DB에 책 객체 등록 
                 bookDB.addElement(book) ; 
             }
-            scan.close() ; 
+            scan.close() ;   // Input stream 닫기 
         } catch(IOException e) {
             System.out.println("bookFile - 파일 입출력 오류 발생 !")  ; 
         } 
@@ -134,11 +136,13 @@ public class LibraryManagementSystem
     public LibDB<User> setUserDB(String userFile)
     {
         try {
-            // 파일 객체 생성 , 문자 입력 스트림 생성 
+            // 파일 객체 생성 
             File file = new File(userFile) ; 
+            
+            // 문자 입력 스트림 생성 
             FileReader fr = new FileReader(file) ; 
 
-            // Input Stream 객체 생성 
+            // FileReader를 이용하여 Scanner 생성 
             Scanner scan = new Scanner(fr) ; 
 
             while(scan.hasNext()) {
@@ -161,7 +165,7 @@ public class LibraryManagementSystem
                 // 이용자DB에 이용자 등록 
                 userDB.addElement(user) ; 
             }
-            scan.close() ; 
+            scan.close() ;  // Input stream 닫기 
         } catch (IOException e) {
             System.out.println("userFile - 파일 입출력 오류 발생 !") ; 
         }

@@ -12,7 +12,7 @@ public class User extends DB_Element
     private Integer stID;
 
     /**
-     * User 클래스의 객체 생성자
+     * User 클래스의 객체 생성자 : 이용자의 속성(stID,name)을 받아 이용자 객체를 생성한다. 
      * 
      * @param 학번(stID), 이름(name)
      * 
@@ -43,5 +43,4 @@ public class User extends DB_Element
     {
         return "[" +stID+ "] " + name ;
     }
-
 }

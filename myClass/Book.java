@@ -15,9 +15,9 @@ public class Book extends DB_Element
     private int year ;
 
     /**
-     * Book 클래스 생성자 : 책의 모든 속성을 받아 객체를 만든다
+     * Book 클래스 생성자 : 책의 모든 속성을 받아 책 객체를 생성한다. 
      */
-    public Book(String author, String bookID, String publisher, String title, int year  )
+    public Book(String author, String bookID, String publisher, String title, int year)
     {
         this.author = author ;
         this.bookID = bookID ;
@@ -27,7 +27,7 @@ public class Book extends DB_Element
     }
 
     /**
-     * getID : 책의 등록번호를 반환하는 메소드
+     * getID : 책의 등록번호를 문자열로 반환하는 메소드
      *
      * 
      * @return    책의 등록번호 (bookID)

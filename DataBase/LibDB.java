@@ -1,7 +1,6 @@
 package DataBase;
 import java.util.*;
 import myClass.*;
-
 /**
  * LibDB<T> 클래스 : 책 DB와 이용지 DB를 만들어내기 위한 제네릭 클래스
  *
@@ -10,22 +9,21 @@ import myClass.*;
  */
 public class LibDB<T extends DB_Element>
 {
-    // 어떤 타입도 저장 가능한 ArrayList 생성
-    private ArrayList<T> db = new ArrayList<T> ();
+    // DB_Element를 상속하는 클래스의 객체(Book,User)만 저장 가능한 제네릭 컬렉션 선언
+    private ArrayList<T> db ;
 
     /**
-     * LibDB 클래스의 객체 생성자
+     * LibDB 클래스의 객체 생성자 : ArrayList<T>를 생성하여 LibDB에 참조시켜 LibDB 객체를 초기화함. 
      */
     public LibDB()
     {
-        // db에 제네릭 타입의 ArrayList를 생성 후 참조시킴
-        ArrayList<T> db = new ArrayList<T> (); 
+        db = new ArrayList<T> (); 
     }
 
     /**
      * addElement() : DB에 요소(객체)를 추가하는 메소드
      *
-     * @param    추가할 요소 객체 T (Book 또는 User)
+     * @param    추가할 객체(Book 또는 User)
      * @return   void
      */
     public void addElement(T element)
@@ -37,7 +35,7 @@ public class LibDB<T extends DB_Element>
      * findElement() : ID를 이용하여 DB내에 해당 ID를 보유한 객체를 검색하는 메소드
      *
      * @param    ID 값 ( 책의 등록 번호 or 이용자 학번)
-     * @return   DB 내 객체 반환 (T)
+     * @return   DB 내 객체 반환 (Book 또는 User)
      */
     public T findElement(String ID)
     {
