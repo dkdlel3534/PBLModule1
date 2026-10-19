@@ -44,3 +44,4 @@ public class User extends DB_Element
         return "[" +stID+ "] " + name ;
     }
 }
+

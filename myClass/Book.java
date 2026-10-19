@@ -46,5 +46,5 @@ public class Book extends DB_Element
     {
         return "(" + bookID + ")" + " " +title+ ", " + publisher + ", " + year ;
     }
-
 }
+

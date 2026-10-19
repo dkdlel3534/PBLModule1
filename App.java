@@ -19,10 +19,10 @@ public class App
         libMS.printDB(libMS.userDB) ; 
         
         // 4. 책 신규 등록
-        LibDB<Book> bookDB = libMS.setBookDB("c:\\Temp\\BookData2025.txt") ; 
+        libMS.bookDB = libMS.setBookDB("c:\\Temp\\BookData2025.txt") ; 
         
         // 5. 책 목록 출력
-        libMS.printDB(bookDB) ; 
+        libMS.printDB(libMS.bookDB) ; 
         
         // 6 . 대출 작업 3건 수행 
         libMS.borrowBook("2025320001", "B02") ; 
@@ -34,3 +34,4 @@ public class App
         libMS.printLoanList() ;  
     }
 }
+

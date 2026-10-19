@@ -10,3 +10,5 @@ abstract public class DB_Element
    //추상 메소드 
    abstract public String getID();
 }
+
+

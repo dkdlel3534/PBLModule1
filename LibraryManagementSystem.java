@@ -157,7 +157,7 @@ public class LibraryManagementSystem
                 }
                 
                 // 이용자의 속성 인텍싱으로 찾기 
-                Integer stID = Integer.parseInt(tokens[0]); 
+                Integer stID = Integer.valueOf(tokens[0]);
                 String name = tokens[1] ; 
                 
                 // 이용자 객체 생성 
